@@ -8,20 +8,17 @@ Pushy has been featured on the [Treehouse Show](https://teamtreehouse.com/librar
 
 [View Demo](https://chrisyee.ca/pushy) | [Sites using Pushy](https://chrisyee.ca/pushy/#sites-using-pushy)
 
+This pushy-vanilla fork is a rewrite of Pushy to remove the jQuery dependency.
+
 ## Features
 
 - Uses CSS transforms & transitions.
 - Smooth performance on mobile devices.
-- jQuery animation fallback for IE 7 - 9.
 - Menu closes when a link is selected.
 - Menu closes when the site overlay is selected.
 - Auto-collapsible submenus.
 - Left or right menu position.
 - It's responsive!
-
-## Requirements
-
-- [jQuery 3.x+](https://jquery.com/)
 
 ## Install
 
@@ -232,17 +229,6 @@ html, body{
     -webkit-overflow-scrolling: touch;
 }
 ```
-
-## Browser Compatibility
-
-| Desktop       | Mobile                                     |
-| ------------- | -------------------------------------------|
-| IE 9-11       | Chrome (Android)                           |
-| MS Edge       | Safari (iOS)                               |
-| Chrome        |                              
-| Firefox       | 
-| Safari (Mac)  |
-
 
 ## Sites using Pushy
 
