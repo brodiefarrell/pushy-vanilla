@@ -11,29 +11,23 @@
   z-index: 9999;
   background: #191918;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  /* enables momentum scrolling in iOS overflow elements */
+  -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
 }
-
 .pushy a {
   display: block;
   color: #b3b3b1;
   padding: 15px 30px;
   text-decoration: none;
 }
-
 .pushy a:hover {
   color: #FFF;
 }
-
 .pushy ul:first-child {
   margin-top: 10px;
 }
-
 .pushy.pushy-left {
   left: 0;
 }
-
 .pushy.pushy-right {
   right: 0;
 }
@@ -75,7 +69,6 @@
   -ms-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
-
 .pushy-open-left .pushy-content,
 .pushy-open-right .pushy-content {
   visibility: visible;
@@ -119,7 +112,6 @@
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fade {
   0% {
     opacity: 0;
@@ -128,22 +120,18 @@
     opacity: 1;
   }
 }
-
 /* Submenu Appearance */
 .pushy-submenu {
   /* Submenu Buttons */
   /* Submenu Icon */
 }
-
 .pushy-submenu > ul {
   padding-left: 15px;
   transition: max-height 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
-
 .pushy-submenu > ul .pushy-link {
   transition: opacity 0.2s ease-in-out;
 }
-
 .pushy-submenu button {
   width: 100%;
   color: #b3b3b1;
@@ -152,19 +140,16 @@
   background: transparent;
   border: 0;
 }
-
 .pushy-submenu button:hover {
   color: #FFF;
 }
-
 .pushy-submenu > a,
 .pushy-submenu > button {
   position: relative;
 }
-
 .pushy-submenu > a::after,
 .pushy-submenu > button::after {
-  content: '';
+  content: "";
   display: block;
   height: 11px;
   width: 8px;
@@ -184,7 +169,6 @@
   overflow: hidden;
   visibility: hidden;
 }
-
 .pushy-submenu-closed .pushy-link {
   opacity: 0;
 }
@@ -192,16 +176,13 @@
 .pushy-submenu-open {
   /* Submenu Icon */
 }
-
 .pushy-submenu-open > ul {
   max-height: 1000px;
   visibility: visible;
 }
-
 .pushy-submenu-open .pushy-link {
   opacity: 1;
 }
-
 .pushy-submenu-open > a::after,
 .pushy-submenu-open > button::after {
   -webkit-transform: translateY(-50%) rotate(90deg);

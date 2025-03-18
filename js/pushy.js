@@ -10,7 +10,7 @@
 		pushyOpenLeft = 'pushy-open-left', // css class when menu is open (left position)
 		pushyOpenRight = 'pushy-open-right', // css class when menu is open (right position)
 		siteOverlay = document.querySelector('.site-overlay'), // site overlay
-		menuLinkFocus = 'focus', // focus on link when menu is open
+		menuLinkFocus = document.querySelector('.pushy-link'), // focus on link when menu is open
 		submenuClass = '.pushy-submenu',
 		submenuOpenClass = 'pushy-submenu-open',
 		submenuClosedClass = 'pushy-submenu-closed',
@@ -21,10 +21,7 @@
 	const menuBtn = document.querySelector(menuBtnClass);
 	const menuBtnFocus = document.querySelector(menuBtnClass);
 
-	// check for user defined container selector
-	const containerSelector = pushy.dataset.containerSelector ?? '#container';
-	const container = document.querySelector(containerSelector);
-
+    // prepare sub-menus
 	toggleSubmenu(subMenus);
 
 	// open pushy menu when trigger btn clicked
@@ -52,15 +49,30 @@
 		}
 	});
 
+	/**
+	 * Toggle psuhy being open or closed
+	 */
 	function togglePushy() {
-		// add class to body based on menu position
-		if(pushy.classList.contains(pushyLeft)) {
+		// add focus to element after opening/closing
+		if (body.classList.contains(pushyOpenLeft) || body.classList.contains(pushyOpenRight)) {
+			// pushy currently open, closing now
+			menuBtnFocus.focus();
+		} else {
+			// pushy currently closed, opening now
+			menuLinkFocus.focus();
+		}
+
+		if (pushy.classList.contains(pushyLeft)) {
 			body.classList.toggle(pushyOpenLeft);
 		} else {
 			body.classList.toggle(pushyOpenRight);
 		}
+		
 	}
 
+	/**
+	 * Close the pushy menu
+	 */
 	function closePushy() {
 		if (pushy.classList.contains(pushyLeft)) {
 			body.classList.remove(pushyOpenLeft);
@@ -69,26 +81,36 @@
 		}
 	}
 
+	/**
+	 * Setup the sub-menus ready for use, initially by closing them all
+	 * and then setting click events. This works for nested sub-menus.
+	 * @param {NodeList} subMenus 
+	 */
 	function toggleSubmenu(subMenus) {
 		subMenus.forEach(subMenu => {
-			// hide submenu by default
-			subMenu.classList.add(submenuClosedClass);
+			subMenu.classList.add(submenuClosedClass); // hide submenus by default
 
 			subMenu.addEventListener('click', function(e) {
-				console.log(e);
-				/* let selected = $(this);
+				let selected = e.currentTarget;
+				if (selected.classList.contains(submenuClosedClass)) {
+					// close same level siblings
+					let siblings = selected.parentNode.childNodes;
+					siblings.forEach((element) => {
+						if (element.classList !== undefined) {
+							element.classList.add(submenuClosedClass);
+							element.classList.remove(submenuOpenClass);
+						}
+					});
 
-				if ( selected.hasClass(submenuClosedClass) ) {
-					//hide same-level opened submenus
-					selected.siblings(submenuClass).addClass(submenuClosedClass).removeClass(submenuOpenClass);
 					//show submenu
-					selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
+					selected.classList.remove(submenuClosedClass);
+                    selected.classList.add(submenuOpenClass);
 				} else {
 					//hide submenu
-					selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
+					selected.classList.add(submenuClosedClass);
+                    selected.classList.remove(submenuOpenClass);
 				}
-				// prevent event to be triggered on parent
-				e.stopPropagation(); */
+				e.stopPropagation(); // prevent event to be triggered on parent
 			});
 		});	
 	}

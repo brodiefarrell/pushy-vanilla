@@ -1,63 +1,30 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
+    const sass = require('sass');
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
-    watch: {
-      options: {
-        livereload: true,
-        spawn: false
-      },
-      css: {
-        files: ['scss/*.scss'],
-        tasks: ['sass-task'],
-      },
-      js: {
-        files: ['js/pushy.js'],
-        tasks: ['js-task'],
-      },
-    },
-    concat: {
+    grunt.initConfig({
+      sass: {
         options: {
-          stripBanners: false,
-          separator: ';'
+            implementation: sass,
+            sourceMap: true
         },
-        dist: {
-          src: [
-                'js/pushy.js'
-                ],
-          dest: 'js/pushy.min.js',
-        },
-    },
-    uglify: {
         dist: {
           files: {
-              'js/pushy.min.js': 'js/pushy.min.js'
+            'css/pushy.css': 'scss/pushy.scss',
+            'css/demo.css': 'scss/demo.scss',
           }
         }
-    },
-    sass: {
-      dist: {
-        options: {
-          outputStyle: 'expanded' //output style: nested, compact, compressed, expanded
-        },
-        files: {
-          'css/pushy.css': 'scss/pushy.scss', // 'destination': 'source'
-          'css/demo.css': 'scss/demo.scss'
+      },
+      uglify: {
+        dist: {
+          files: {
+            'js/pushy.min.js': 'js/pushy.js'
+          }
         }
       }
-    }
-  });
-
-  // Load grunt plugins
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-
-  // Default task(s).
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('js-task', ['concat', 'uglify']);
-  grunt.registerTask('sass-task', ['sass']);
-
-};
+    });
+  
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');  
+    grunt.registerTask('default', ['sass', 'uglify']);
+  };
+  

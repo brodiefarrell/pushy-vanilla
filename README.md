@@ -2,13 +2,13 @@
 
 Pushy is a responsive off-canvas navigation menu using CSS transforms & transitions. This project was inspired by the off-canvas navigation menu seen on [Medium](https://medium.com/).
 
+Pushy-vanilla is a rewrite of the original Pushy to remove the jQuery dependency.
+
 Pushy has been implemented on many sites, [check them out!](https://chrisyee.ca/pushy/#sites-using-pushy) Feel free to [contact me](https://chrisyee.ca/contact/) if you use Pushy in one of your websites.
 
 Pushy has been featured on the [Treehouse Show](https://teamtreehouse.com/library/episode-118-page-transitions-designing-for-thumbs-concise?t=572) and in a [book](https://www.google.ca/books/edition/Responsive_Mobile_Design/guZjBAAAQBAJ?hl=en&gbpv=1&dq=christopheryee.ca/pushy&pg=PA103&printsec=frontcover)!
 
 [View Demo](https://chrisyee.ca/pushy) | [Sites using Pushy](https://chrisyee.ca/pushy/#sites-using-pushy)
-
-This pushy-vanilla fork is a rewrite of Pushy to remove the jQuery dependency.
 
 ## Features
 
@@ -75,15 +75,6 @@ Now you can edit files in `/scss/` and `/js/`, which will be compiled to `/css/p
 ## CDN
 
 Link directly to Pushy files on [cdnjs](https://cdnjs.com/libraries/pushy).
-
-
-## NPM
-
-If your are comfortable with command line, you can install Pushy as a [NPM package](https://www.npmjs.com/package/@cmyee/pushy):
-
-```
-npm install @cmyee/pushy
-```
 
 ## Options
 
