@@ -67,10 +67,10 @@ Pushy CSS and JS are compiled and minified using Grunt. You'll need [Node](https
 
 ```
 $ npm install
-$ grunt
+$ npx grunt
 ```
 
-Now you can edit files in `/scss/` and `/js/`, which will be compiled to `/css/pushy.css` and `/js/pushy.min.js` automatically.
+Now you can edit files in `/scss/` and `/js/`, which will be compiled to `/css/pushy.css` and `/js/pushy.min.js`.
 
 ## CDN
 
