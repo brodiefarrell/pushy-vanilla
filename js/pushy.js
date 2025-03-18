@@ -13,7 +13,8 @@
 		menuLinkFocus = 'focus', // focus on link when menu is open
 		submenuClass = '.pushy-submenu',
 		submenuOpenClass = 'pushy-submenu-open',
-		submenuClosedClass = 'pushy-submenu-closed';
+		submenuClosedClass = 'pushy-submenu-closed',
+		subMenus = document.querySelectorAll(submenuClass);
 
 	// check for user defined menu btn selector
 	const menuBtnClass = pushy.dataset.menuBtnSelector ?? '.menu-btn';
@@ -23,6 +24,8 @@
 	// check for user defined container selector
 	const containerSelector = pushy.dataset.containerSelector ?? '#container';
 	const container = document.querySelector(containerSelector);
+
+	toggleSubmenu(subMenus);
 
 	// open pushy menu when trigger btn clicked
 	menuBtn.addEventListener('click', function(e) {
@@ -64,5 +67,29 @@
 		} else {
 			body.classList.remove(pushyOpenRight);
 		}
+	}
+
+	function toggleSubmenu(subMenus) {
+		subMenus.forEach(subMenu => {
+			// hide submenu by default
+			subMenu.classList.add(submenuClosedClass);
+
+			subMenu.addEventListener('click', function(e) {
+				console.log(e);
+				/* let selected = $(this);
+
+				if ( selected.hasClass(submenuClosedClass) ) {
+					//hide same-level opened submenus
+					selected.siblings(submenuClass).addClass(submenuClosedClass).removeClass(submenuOpenClass);
+					//show submenu
+					selected.removeClass(submenuClosedClass).addClass(submenuOpenClass);
+				} else {
+					//hide submenu
+					selected.addClass(submenuClosedClass).removeClass(submenuOpenClass);
+				}
+				// prevent event to be triggered on parent
+				e.stopPropagation(); */
+			});
+		});	
 	}
 })();
